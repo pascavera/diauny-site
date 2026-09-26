@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DIAUNY — Le portefeuille mobile du Gabon</title>
+<meta name="description" content="DIAUNY, portefeuille mobile au Gabon : transferts, paiements marchands par QR code, Mobile Money Airtel et Moov, coffre d'épargne, tontines et programme Cadeaux.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:title" content="DIAUNY — Le portefeuille mobile du Gabon">
+<meta property="og:description" content="Transferts, paiements marchands par QR, Mobile Money, coffre, tontines et Cadeaux.">
+<meta property="og:image" content="https://diauny.com/logo.png">
+<meta property="og:url" content="https://diauny.com/">
+<style>
+  :root {
+    --bleu-fonce: #0D47A1; --bleu: #1976D2; --bleu-clair: #29B6F6;
+    --fond: #F0F4FF; --carte: #FFFFFF; --texte: #0D1117; --texte-2: #4B5563; --bordure: #E3EAF7;
+    --ombre: 0 4px 18px rgba(21, 101, 192, 0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --fond: #0B1220; --carte: #121B2E; --texte: #E8EEF9; --texte-2: #A7B3C9; --bordure: #1E2A44; --ombre: none; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--fond); color: var(--texte); line-height: 1.6; }
+  a { color: var(--bleu); }
+  .conteneur { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+
+  header.hero { background: linear-gradient(135deg, var(--bleu-fonce), var(--bleu) 55%, var(--bleu-clair)); color: #fff; padding: 28px 0 72px; position: relative; overflow: hidden; }
+  header.hero::before, header.hero::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255,255,255,0.08); }
+  header.hero::before { width: 420px; height: 420px; right: -120px; top: -140px; }
+  header.hero::after { width: 260px; height: 260px; left: -90px; bottom: -120px; }
+  nav { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+  .marque { display: flex; align-items: center; gap: 10px; color: #fff; text-decoration: none; font-weight: 800; font-size: 20px; letter-spacing: 0.5px; }
+  .marque img { width: 40px; height: 40px; border-radius: 12px; }
+  nav .liens a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 600; font-size: 14px; margin-left: 18px; }
+  .hero-contenu { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; margin-top: 48px; position: relative; z-index: 1; }
+  .hero h1 { font-size: 42px; line-height: 1.15; margin: 0 0 16px; }
+  .hero p.accroche { font-size: 18px; opacity: 0.92; margin: 0 0 22px; max-width: 540px; }
+  .pastille { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.3); border-radius: 999px; padding: 8px 16px; font-size: 14px; font-weight: 600; }
+  .hero-logo { justify-self: center; width: 260px; height: 260px; border-radius: 56px; box-shadow: 0 24px 60px rgba(0,0,0,0.25); }
+
+  section { padding: 56px 0 8px; }
+  h2 { font-size: 28px; margin: 0 0 8px; }
+  .sous-titre { color: var(--texte-2); margin: 0 0 28px; }
+  .grille { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .carte { background: var(--carte); border: 1px solid var(--bordure); border-radius: 20px; padding: 22px; box-shadow: var(--ombre); }
+  .carte .icone { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-size: 24px; margin-bottom: 12px; background: linear-gradient(135deg, var(--bleu), var(--bleu-clair)); }
+  .carte h3 { margin: 0 0 6px; font-size: 17px; }
+  .carte p { margin: 0; color: var(--texte-2); font-size: 14.5px; }
+
+  .infos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .infos ul { margin: 8px 0 0; padding-left: 20px; }
+  .infos li { margin-bottom: 6px; }
+
+  footer { margin-top: 56px; padding: 28px 0 40px; border-top: 1px solid var(--bordure); color: var(--texte-2); font-size: 13.5px; }
+  footer .ligne { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer a { color: var(--texte-2); margin-right: 14px; }
+
+  @media (max-width: 820px) {
+    .hero-contenu { grid-template-columns: 1fr; text-align: center; margin-top: 32px; }
+    .hero p.accroche { margin-left: auto; margin-right: auto; }
+    .hero-logo { width: 180px; height: 180px; border-radius: 40px; grid-row: 1; }
+    .hero h1 { font-size: 32px; }
+    .grille { grid-template-columns: 1fr 1fr; }
+    .infos { grid-template-columns: 1fr; }
+    nav .liens { display: none; }
+  }
+  @media (max-width: 520px) {
+    .grille { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="conteneur">
+    <nav>
+      <a class="marque" href="./"><img src="logo.png" alt="">DIAUNY</a>
+      <div class="liens">
+        <a href="#fonctionnalites">Fonctionnalités</a>
+        <a href="#contact">Contact</a>
+        <a href="supprimer-compte.html">Supprimer mon compte</a>
+      </div>
+    </nav>
+    <div class="hero-contenu">
+      <div>
+        <h1>Votre argent, simplement, depuis votre téléphone.</h1>
+        <p class="accroche">DIAUNY est un portefeuille mobile pensé pour le Gabon : envoyez de l'argent, payez vos commerçants par QR code, épargnez et cotisez en tontine, en quelques secondes.</p>
+        <span class="pastille">📱 Application bientôt disponible sur iPhone et Android</span>
+      </div>
+      <img class="hero-logo" src="logo.png" alt="Logo DIAUNY : un perroquet gris du Gabon">
+    </div>
+  </div>
+</header>
+
+<main class="conteneur">
+  <section id="fonctionnalites">
+    <h2>Tout ce qu'il faut au quotidien</h2>
+    <p class="sous-titre">Une seule application pour vos opérations de tous les jours.</p>
+    <div class="grille">
+      <div class="carte"><div class="icone">💸</div><h3>Transferts</h3><p>Envoyez de l'argent à un proche avec son numéro de téléphone, instantanément.</p></div>
+      <div class="carte"><div class="icone">🛍️</div><h3>Paiements marchands</h3><p>Scannez le QR code d'un commerçant, d'une école ou d'une université DIAUNY et payez sans frais.</p></div>
+      <div class="carte"><div class="icone">📲</div><h3>Mobile Money</h3><p>Alimentez votre compte ou retirez votre argent via Airtel Money et Moov Money.</p></div>
+      <div class="carte"><div class="icone">🔐</div><h3>Coffre</h3><p>Mettez de l'argent de côté dans un coffre séparé de votre solde courant.</p></div>
+      <div class="carte"><div class="icone">🗄️</div><h3>Tontines</h3><p>Créez ou rejoignez une tontine et suivez les cotisations et les tours de chacun.</p></div>
+      <div class="carte"><div class="icone">🎁</div><h3>Cadeaux</h3><p>Un programme promotionnel gratuit : vos paiements marchands débloquent des cartes à gratter. <a href="https://pascavera.github.io/diauny-legal/reglement-cadeaux.html">Règlement</a></p></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="infos">
+      <div class="carte">
+        <h3>Éditeur</h3>
+        <p><strong>DIAUNY ENTREPRISE</strong><br>Libreville, Gabon<br>RCCM GA-LBV-01-2026-A10-01510</p>
+      </div>
+      <div class="carte">
+        <h3>Contact</h3>
+        <p>Une question, un problème avec votre compte ?<br>Écrivez-nous à <a href="mailto:contact@diauny.com">contact@diauny.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="carte">
+      <h3>Informations légales</h3>
+      <ul style="margin:8px 0 0; padding-left:20px;">
+        <li><a href="https://pascavera.github.io/diauny-legal/cgu.html">Conditions générales d'utilisation</a></li>
+        <li><a href="https://pascavera.github.io/diauny-legal/privacy.html">Politique de confidentialité</a></li>
+        <li><a href="https://pascavera.github.io/diauny-legal/reglement-cadeaux.html">Règlement du programme Cadeaux</a></li>
+        <li><a href="supprimer-compte.html">Supprimer mon compte</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="conteneur ligne">
+    <span>© 2026 DIAUNY ENTREPRISE — Libreville, Gabon</span>
+    <span>
+      <a href="https://pascavera.github.io/diauny-legal/cgu.html">CGU</a>
+      <a href="https://pascavera.github.io/diauny-legal/privacy.html">Confidentialité</a>
+      <a href="supprimer-compte.html">Supprimer mon compte</a>
+    </span>
+  </div>
+</footer>
+</body>
+</html>
