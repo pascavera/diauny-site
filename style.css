@@ -77,7 +77,11 @@ a { color: var(--bleu); }
 .store small { display: block; font-size: 11px; opacity: .85; }
 .store strong { font-size: 17px; font-weight: 600; }
 .store.bientot { background: transparent; color: inherit; border: 1px dashed currentColor; opacity: .75; cursor: default; }
-.boutons-store { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.boutons-store { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; padding: 11px 0; }
+/* Badges officiels Apple et Google : non modifiés, même hauteur visible (44 px), espace libre autour */
+.badge-store { display: inline-block; line-height: 0; border-radius: 8px; }
+.badge-store img { display: block; height: 44px; width: auto; }
+.badge-store.google img { height: 57px; margin: -7px 0; } /* le PNG Google a une marge transparente intégrée */
 
 /* ---------- Héros d'accueil ---------- */
 .hero {
